@@ -1,0 +1,27 @@
+extends layout
+
+block content
+    if page === 'home'
+        h2 Testing for PS2
+        a(href="/ps2/p1") Part 1 <br/>
+        a(href="/ps2/p2") Part 2 <br/>
+        a(href="/ps2/p3") Part 3
+    else if page === 'p1'
+        h1 Part 1
+        p= part1resp
+        a(href='/ps2') Home
+    else if page === 'p2'
+        h1 Part 2
+        p Input string: #{part2resp.text}
+        p String length: #{part2resp.length}
+        a(href= '/ps2') Home
+    else if page === 'p3'
+        h1 Part 3
+        p Hello my name is #{part3resp}
+        a(href='/ps2') Home
+    else if page === 'form'
+        h1 Enter a string
+        form(action='/ps2/p2', method='post')
+            label(for='input') Input:
+            input(type='text', id='input', name='input', required)
+            button(type='submit') Submit
